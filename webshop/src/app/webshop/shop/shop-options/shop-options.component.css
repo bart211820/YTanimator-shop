@@ -1,0 +1,51 @@
+#shopOptionsList{
+  height: 70vh;
+  padding-top: 2.5vh;
+}
+
+.shopOption{
+  margin-bottom: 2vh;
+  padding-left: 12vw;
+  background-color: #93bfec;
+  transition: width 1s, padding 1s;
+}
+
+.shopOptionOn{
+  width: 95%;
+}
+
+.shopOptionOff{
+  width: 50%;
+}
+
+.animatorOption{
+  height: 6vw;
+  padding-top: 0.5vw;
+  border-top-right-radius: 3vw;
+  border-bottom-right-radius: 3vw;
+}
+
+.animatorOption .optionImage{
+  width: 5vw;
+  height: 5vw;
+  float: left;
+  margin-left: 2vw;
+}
+
+.shopOption input{
+  height: 3vw;
+  width: 3vw;
+  margin-left: 2vw;
+  margin-top: 1vw;
+  cursor: pointer;
+}
+
+#aplyShopOptionsButton{
+  margin-top: 1vh;
+  width: 90%;
+  margin-left: 5%;
+  padding-top: 0.8vh;
+  padding-bottom: 1.2vh;
+  font-size: 1.8vw;
+  border-radius: 5.5vh;
+}

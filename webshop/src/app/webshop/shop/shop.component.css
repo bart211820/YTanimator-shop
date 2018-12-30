@@ -1,0 +1,11 @@
+#shopOptionsContainer{
+  width: 30%;
+  float: left;
+  background-image: linear-gradient(#d4e6f7, #d4e6f7, white);
+  height: 70vh;
+}
+
+#shopItemsContainer{
+  width: 70%;
+  float: right;
+}
