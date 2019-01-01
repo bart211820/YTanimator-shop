@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Animator} from '../../../../shared/animator.model';
+import {Animator} from '../../../../shared/modelsAndTheirServices/animator.model';
 
 @Component({
   selector: 'app-shop-animator-option',

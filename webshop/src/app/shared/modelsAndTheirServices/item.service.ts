@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import {ApiService} from "../../shared/api.service";
-import {AuthorizationService} from "../../shared/authorization.service";
+import {ApiService} from "../api.service";
+import {AuthorizationService} from "../authorization.service";
 import {Item} from "./item";
 
 @Injectable({
   providedIn: ApiService,
 })
-export class ShopService {
+export class ItemService {
 
   constructor(private api: ApiService,
               private authService: AuthorizationService,

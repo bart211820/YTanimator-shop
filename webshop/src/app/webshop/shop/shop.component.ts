@@ -3,8 +3,8 @@ import {ApiService} from "../../shared/api.service";
 import {Router} from "@angular/router";
 import {AuthorizationService} from "../../shared/authorization.service";
 import {Observable} from "rxjs";
-import {Item} from "./item";
-import {ShopService} from "./shop.service";
+import {Item} from "../../shared/modelsAndTheirServices/item";
+import {ItemService} from "../../shared/modelsAndTheirServices/item.service";
 
 @Component({
   selector: 'app-shop',
@@ -13,22 +13,25 @@ import {ShopService} from "./shop.service";
   providers: [
     ApiService,
     AuthorizationService,
-    ShopService
+    ItemService
   ]
 })
 export class ShopComponent implements OnInit {
   private items;
+  private itemList = [];
 
-  constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private shopService: ShopService) { }
+  constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService) { }
 
   ngOnInit() {
-    this.items = this.shopService.getAll();
+    this.items = this.itemService.getAll();
     this.getAll();
   }
 
   getAll(): void {
     this.items.subscribe(data => {
-      console.log(data);
+      for(let itemData of data) {
+        this.itemList.push(new Item(itemData));
+      }
     });
   }
 

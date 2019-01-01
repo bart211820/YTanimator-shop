@@ -13,6 +13,7 @@ import { ShopOptionsComponent } from './webshop/shop/shop-options/shop-options.c
 import { ShopAnimatorOptionComponent } from './webshop/shop/shop-options/shop-animator-option/shop-animator-option.component'
 import { ShopItemComponent } from './webshop/shop/shop-item/shop-item.component';
 import { AboutComponent } from './webshop/about/about.component';
+import {ItemComponent} from "./webshop/item/item.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AboutComponent } from './webshop/about/about.component';
     ShopOptionsComponent,
     ShopAnimatorOptionComponent,
     ShopItemComponent,
-    AboutComponent
+    AboutComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

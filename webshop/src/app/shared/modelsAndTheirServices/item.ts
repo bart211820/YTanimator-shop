@@ -1,6 +1,26 @@
 export class Item {
-  constructor(public itemID?: Number, public itemName?: String, public itemDescription?: String, public itemPrice?: Number, public itemImage?: String, public itemType?: String, public itemAnimatorID?: Number) {
 
+  private itemID;
+  private itemName;
+  private itemDescription;
+  private itemPrice;
+  private itemImage;
+  private itemType;
+  private itemAnimatorID;
+
+  // constructor(private itemID?: Number, private itemName?: String, private itemDescription?: String, private itemPrice?: Number, private itemImage?: String, private itemType?: String, private itemAnimatorID?: Number) {
+  //
+  // }
+
+  constructor(private data?: object) {
+    console.log(data);
+    this.itemID = data.itemID;
+    this.itemName = data.itemName;
+    this.itemDescription = data.itemDescription;
+    this.itemPrice = data.itemPrice;
+    this.itemImage = data.itemImage;
+    this.itemType = data.itemType;
+    this.itemAnimatorID = data.itemAnimatorID;
   }
 
   public getData() {
