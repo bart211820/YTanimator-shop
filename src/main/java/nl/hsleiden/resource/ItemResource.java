@@ -8,10 +8,7 @@ import nl.hsleiden.service.ItemService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
 
@@ -33,5 +30,13 @@ public class ItemResource {
     public Collection<Item> retrieveAll()
     {
         return service.getAll();
+    }
+
+    @GET
+    @Path("/{itemID}")
+    @JsonView(View.Public.class)
+    public Item retrieve(@PathParam("itemID") int itemID)
+    {
+        return service.getOne(itemID);
     }
 }

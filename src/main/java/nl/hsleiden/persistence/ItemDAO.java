@@ -43,7 +43,7 @@ public class ItemDAO {
 
     public List<Item> getAllItems() {
 //        try {
-//            query = "SELECT * FROM Send_Time;";
+//            query = "SELECT * FROM Item;";
 //            statement = database.prepareStatement(query);
 //
 //            return selectItems(statement);
@@ -57,5 +57,23 @@ public class ItemDAO {
         temporaryList.add(item1);
         temporaryList.add(item2);
         return temporaryList;
+    }
+
+    public Item getItem(int itemID){
+//        try {
+//            query = "SELECT * FROM Item WHERE itemID = ?;";
+//            statement.setInt(1, itemID);
+//            statement = database.prepareStatement(query);
+//
+//            return selectItems(statement).get(0);
+//        }
+//        catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        if(itemID == 1){
+            return new Item(1, "The Odd 1s Out Book", "Description", 20.0, "https://cdn.shopify.com/s/files/1/0033/1762/8983/products/Book_720x.jpg?v=1529191180", "Boek", 1);
+        }
+        return new Item(2, "Ari Plush", "Description2", 14.0, "https://cdn.shopify.com/s/files/1/0034/0590/6035/products/Plush1_590x.jpg?v=1535989539", "Plush", 2);
     }
 }

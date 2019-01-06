@@ -18,6 +18,10 @@ export class ItemService {
     return this.api.get<Item[]>('items');
   }
 
+  public getOne(itemID: number): Observable<Item[]> {
+    return this.api.get<Item[]>('items/' + itemID);
+  }
+
   public register(item: Item): void {
     const data = item.getData();
     this.api.post<void>('items', data).subscribe (

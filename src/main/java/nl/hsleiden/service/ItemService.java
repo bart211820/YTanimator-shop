@@ -21,4 +21,8 @@ public class ItemService {
         return dao.getAllItems();
     }
 
+    public Item getOne(int itemID){
+        return dao.getItem(itemID);
+    }
+
 }

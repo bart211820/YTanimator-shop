@@ -1,0 +1,56 @@
+#itemInfoLeft{
+  float: left;
+  width: 40%;
+  margin-right: 5%;
+  padding-top: 3vh;
+  padding-left: 5vw;
+}
+
+#itemInfoLeft h2{
+  font-size: 2vw;
+  text-align: center;
+}
+
+#itemInfoLeft p{
+  font-size: 1.5vw;
+}
+
+#itemInfoLeft .yamsButton{
+  width: 90%;
+  height: 5vw;
+  font-size: 2.4vw;
+  padding-top: 0.7vw;
+  margin-top: 9vh;
+  margin-left: 5%;
+  text-align: center;
+}
+
+#itemPrice{
+  background-color: #FF0000;
+  font-size: 1.5vw;
+  font-weight: bold;
+  float: right;
+  padding-left: 1.4vw;
+  padding-right: 1.4vw;
+  padding-bottom: 0.9vw;
+  padding-top: 0.8vw;
+  border-radius: 3vw;
+}
+
+#itemInfoRight{
+  padding-top: 3vh;
+  float: left;
+  width: 50%;
+}
+
+#itemShadowGiver{
+  width: 70vh;
+  height: 70vh;
+  box-shadow: inset 0vh 0vh 2vh black;
+  position: absolute;
+}
+
+#itemInfoRight img{
+  width: 70vh;
+  height: 70vh;
+}

@@ -13,7 +13,6 @@ export class Item {
   // }
 
   constructor(private data?: object) {
-    console.log(data);
     this.itemID = data.itemID;
     this.itemName = data.itemName;
     this.itemDescription = data.itemDescription;
