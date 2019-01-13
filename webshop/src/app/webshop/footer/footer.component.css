@@ -5,4 +5,5 @@ footer{
   color: white;
   box-shadow: 0vh -0.4vh 0.6vh #192154;
   z-index: 999;
+  margin-top: 1vh;
 }

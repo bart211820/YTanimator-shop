@@ -22,8 +22,3 @@ a{
   color: #0d0d0d;
   text-decoration: none;
 }
-
-#routerContainer{
-  min-height: 88vh;
-  padding-top: 8vh;
-}
