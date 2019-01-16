@@ -17,7 +17,7 @@ import {Item} from "../../shared/modelsAndTheirServices/item";
 })
 export class ItemComponent implements OnInit {
   private item;
-  private itemObject;
+  private itemObject: Item;
   private itemID;
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService, private route: ActivatedRoute) { }

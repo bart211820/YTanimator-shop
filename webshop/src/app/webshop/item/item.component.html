@@ -1,3 +1,4 @@
+<!--
 <app-header></app-header>
 <div id="itemInfoLeft">
   <h2>{{ itemObject.getItemName() }} ({{ itemObject.getItemType() }})</h2>
@@ -8,4 +9,19 @@
 <div id="itemInfoRight">
   <div id="itemShadowGiver"></div>
   <img src="{{ itemObject.getItemImage() }}" alt="{{ itemObject.getItemName() }}">
+</div>
+-->
+
+<app-header></app-header>
+<div id="itemContentContainer">
+  <div id="itemInfoLeft">
+    <h2>{{ itemObject.getItemName() }} ({{ itemObject.getItemType() }})</h2>
+    <div id="itemShadowGiver"></div>
+    <img src="{{ itemObject.getItemImage() }}" alt="{{ itemObject.getItemName() }}">
+  </div>
+  <div id="itemInfoRight">
+    <p>{{ itemObject.getItemDescription() }}</p>
+    <div id="itemPrice"><h6>&euro; {{ itemObject.getItemPrice() }}</h6></div>
+    <div class="yamsButton">Add to cart</div>
+  </div>
 </div>

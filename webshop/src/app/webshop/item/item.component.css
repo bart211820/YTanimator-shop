@@ -1,46 +1,18 @@
+#itemContentContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2vh;
+}
+
 #itemInfoLeft{
-  float: left;
   width: 40%;
-  margin-right: 5%;
-  padding-top: 3vh;
-  padding-left: 5vw;
 }
 
 #itemInfoLeft h2{
   font-size: 2vw;
-  text-align: center;
-}
-
-#itemInfoLeft p{
-  font-size: 1.5vw;
-}
-
-#itemInfoLeft .yamsButton{
-  width: 90%;
-  height: 5vw;
-  font-size: 2.4vw;
-  padding-top: 0.7vw;
-  margin-top: 9vh;
-  margin-left: 5%;
-  text-align: center;
-}
-
-#itemPrice{
-  background-color: #FF0000;
-  font-size: 1.5vw;
-  font-weight: bold;
-  float: right;
-  padding-left: 1.4vw;
-  padding-right: 1.4vw;
-  padding-bottom: 0.9vw;
-  padding-top: 0.8vw;
-  border-radius: 3vw;
-}
-
-#itemInfoRight{
-  padding-top: 3vh;
-  float: left;
-  width: 50%;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
 }
 
 #itemShadowGiver{
@@ -50,7 +22,45 @@
   position: absolute;
 }
 
-#itemInfoRight img{
+#itemInfoLeft img{
   width: 70vh;
   height: 70vh;
+  margin-bottom: 3vh;
+}
+
+#itemInfoRight{
+  width: 40%;
+  min-height: 80vh;
+  padding-top: 1vh;
+}
+
+#itemInfoRight p{
+  font-size: 1.6vw;
+}
+
+#itemPrice{
+  margin: 2vh auto;
+  background-color: #4290de;
+  width: 5vw;
+  height: 5vw;
+  transform: rotate(45deg);
+  box-shadow: 0vh 0vh 3vh 1vh #4290de;
+  padding-top: 0.6vw;
+  padding-left: 0.5vw;
+  margin-bottom: 5vh;
+}
+
+#itemPrice h6{
+  transform: rotate(-45deg);
+  color: white;
+  font-size: 1.7vw;
+  line-height: 3vw;
+}
+
+#itemInfoRight .yamsButton{
+  margin: 0px auto;
+  width: 50%;
+  height: 8vh;
+  line-height: 7.7vh;
+  font-size: 2vw;
 }
