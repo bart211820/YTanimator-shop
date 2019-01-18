@@ -1,5 +1,6 @@
 package nl.hsleiden.service;
 
+import nl.hsleiden.model.Animator;
 import nl.hsleiden.model.Item;
 import nl.hsleiden.persistence.ItemDAO;
 
@@ -25,4 +26,9 @@ public class ItemService {
         return dao.getItem(itemID);
     }
 
+    public void create(Item item) {
+        dao.createItem(item.getItemName(), item.getItemDescription(), item.getItemPrice(), item.getItemImage(), item.getItemType(), item.getItemAnimatorID());
+    }
+
+    public void delete(int itemID) { dao.deleteItem(itemID); }
 }

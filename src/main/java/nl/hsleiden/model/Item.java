@@ -9,6 +9,10 @@ public class Item {
     private String itemType;
     private int itemAnimatorID;
 
+    public Item() {
+
+    }
+
     public Item(int itemID, String itemName, String itemDescription, double itemPrice, String itemImage, String itemType, int itemAnimatorID) {
         this.itemID = itemID;
         this.itemName = itemName;

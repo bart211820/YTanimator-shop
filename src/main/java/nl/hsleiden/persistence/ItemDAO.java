@@ -76,4 +76,37 @@ public class ItemDAO {
         }
         return new Item(2, "Ari Plush", "Description2", 14.0, "https://cdn.shopify.com/s/files/1/0034/0590/6035/products/Plush1_590x.jpg?v=1535989539", "Plush", 2);
     }
+
+    public void createItem(String itemName, String itemDescription, double itemPrice, String itemImage, String itemType, int itemAnimatorID) {
+        try {
+            query = "INSERT INTO Item (itemName, itemDescription, itemPrice, itemImage, itemType, itemAnimatorID) VALUES (?, ?, ?, ?, ?, ?);";
+
+            statement = database.prepareStatement(query);
+            statement.setString(1, itemName);
+            statement.setString(2, itemDescription);
+            statement.setDouble(3, itemPrice);
+            statement.setString(4, itemImage);
+            statement.setString(5, itemType);
+            statement.setInt(5, itemAnimatorID);
+
+            database.update(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void deleteItem(int itemID) {
+        try {
+            query = "DELETE FROM item WHERE itemID = ?;";
+
+            statement = database.prepareStatement(query);
+            statement.setInt(1, itemID);
+
+            database.update(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

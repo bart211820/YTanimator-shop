@@ -3,8 +3,9 @@ package nl.hsleiden.resource;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.inject.Singleton;
 import nl.hsleiden.View;
-import nl.hsleiden.model.Basket;
+import nl.hsleiden.model.Animator;
 import nl.hsleiden.model.Item;
+import nl.hsleiden.service.AnimatorService;
 import nl.hsleiden.service.ItemService;
 
 import javax.annotation.security.RolesAllowed;
@@ -14,44 +15,44 @@ import javax.ws.rs.core.MediaType;
 import java.util.Collection;
 
 @Singleton
-@Path("/items")
+@Path("/animators")
 @Produces(MediaType.APPLICATION_JSON)
-public class ItemResource {
+public class AnimatorResource {
 
-    private final ItemService service;
+    private final AnimatorService service;
 
     @Inject
-    public ItemResource(ItemService service)
+    public AnimatorResource(AnimatorService service)
     {
         this.service = service;
     }
 
     @GET
     @JsonView(View.Public.class)
-    public Collection<Item> retrieveAll()
+    public Collection<Animator> retrieveAll()
     {
         return service.getAll();
     }
 
     @GET
-    @Path("/{itemID}")
+    @Path("/{animatorID}")
     @JsonView(View.Public.class)
-    public Item retrieve(@PathParam("itemID") int itemID)
+    public Animator retrieve(@PathParam("animatorID") int animatorID)
     {
-        return service.getOne(itemID);
+        return service.getOne(animatorID);
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
-    public void create(Item item)
+    public void create(Animator animator)
     {
-        service.create(item);
+        service.create(animator);
     }
 
     @DELETE
-    @Path("/{itemID}")
-    public void delete(@PathParam("itemID") int id)
+    @Path("/{animatorID}")
+    public void delete(@PathParam("animatorID") int id)
     {
         service.delete(id);
     }
