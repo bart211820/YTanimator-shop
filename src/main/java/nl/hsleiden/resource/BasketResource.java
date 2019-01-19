@@ -3,11 +3,8 @@ package nl.hsleiden.resource;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.inject.Singleton;
 import nl.hsleiden.View;
-import nl.hsleiden.model.Animator;
 import nl.hsleiden.model.Basket;
-import nl.hsleiden.service.AnimatorService;
 import nl.hsleiden.service.BasketService;
-import sun.swing.BakedArrayList;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -53,6 +50,15 @@ public class BasketResource {
     public void create(Basket basket)
     {
         service.create(basket);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Protected.class)
+    public void update(@PathParam("id") int id, Basket basket)
+    {
+        service.update(id, basket);
     }
 
     @DELETE

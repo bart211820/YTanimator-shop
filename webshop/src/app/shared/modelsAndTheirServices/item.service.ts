@@ -5,6 +5,7 @@ import {ApiService} from "../api.service";
 import {AuthorizationService} from "../authorization.service";
 import {Item} from "./item";
 import {Basket} from "./basket";
+import {Order} from "./order";
 
 @Injectable({
   providedIn: ApiService,
@@ -32,6 +33,18 @@ export class ItemService {
       },
       error => {
         alert('Could not make a new item.');
+      }
+    );
+  }
+
+  public update(item: Item): void {
+    const data = item.getData();
+    this.api.put<void>('items' + item.getItemID(), data).subscribe (
+      data => {
+        console.log('Item has been updated.');
+      },
+      error => {
+        console.log('Item has NOT been updated!!! D:');
       }
     );
   }

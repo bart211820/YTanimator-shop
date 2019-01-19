@@ -3,9 +3,7 @@ package nl.hsleiden.resource;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.inject.Singleton;
 import nl.hsleiden.View;
-import nl.hsleiden.model.Basket;
 import nl.hsleiden.model.Order;
-import nl.hsleiden.service.BasketService;
 import nl.hsleiden.service.OrderService;
 
 import javax.inject.Inject;
@@ -52,6 +50,15 @@ public class OrderResource {
     public void create(Order order)
     {
         service.create(order);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Protected.class)
+    public void update(@PathParam("id") int id, Order order)
+    {
+        service.update(id, order);
     }
 
     @DELETE

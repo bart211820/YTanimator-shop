@@ -50,7 +50,7 @@ public class UserService extends BaseService<User>
             assertSelf(authenticator, oldUser);
         }
         
-        dao.update(id, user);
+        dao.updateUser(user.getFullName(), user.getPostcode(), user.getStreetnumber(), user.getEmailAddress(), user.getPassword(), user.getUserID());
     }
     
     public void delete(int id)

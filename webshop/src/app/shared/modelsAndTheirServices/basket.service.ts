@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {ApiService} from "../api.service";
 import {AuthorizationService} from "../authorization.service";
 import {Basket} from "./basket";
+import {Item} from "./item";
 
 @Injectable({
   providedIn: ApiService,
@@ -35,6 +36,18 @@ export class BasketService {
       },
       error => {
         alert('Could not make a new basket.');
+      }
+    );
+  }
+
+  public update(basket: Basket): void {
+    const data = basket.getData();
+    this.api.put<void>('baskets' + basket.getBasketID(), data).subscribe (
+      data => {
+        console.log('Basket has been updated.');
+      },
+      error => {
+        console.log('Basket has NOT been updated!!! D:');
       }
     );
   }

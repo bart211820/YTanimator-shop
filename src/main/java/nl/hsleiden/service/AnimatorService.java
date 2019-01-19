@@ -32,5 +32,13 @@ public class AnimatorService {
         dao.createAnimator(animator.getAnimatorName(), animator.getAnimatorLink(), animator.getAnimatorImage());
     }
 
+    public void update(int animatorID, Animator animator)
+    {
+        // Controleren of deze animator wel bestaat
+        Animator oldAnimator = getOne(animatorID);
+
+        dao.updateAnimator(animator.getAnimatorName(), animator.getAnimatorLink(), animator.getAnimatorImage(), animator.getAnimatorID());
+    }
+
     public void delete(int animatorID) { dao.deleteAnimator(animatorID); }
 }

@@ -114,9 +114,27 @@ public class OrderDAO {
         }
     }
 
+    public void updateOrder(int orderUserID, int orderItemID, int orderAmount, Date orderDelivery, int orderID) {
+        try {
+            query = "UPDATE Order orderUserID = ?, orderItemID = ?, orderAmount = ?, orderDelivery = ? WHERE orderID = ?";
+
+            statement = database.prepareStatement(query);
+            statement.setInt(1, orderUserID);
+            statement.setInt(2, orderItemID);
+            statement.setInt(3, orderAmount);
+            statement.setDate(4, orderDelivery);
+            statement.setInt(5, orderID);
+
+            database.update(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void deleteOrder(int orderID) {
         try {
-            query = "DELETE FROM order WHERE orderID = ?;";
+            query = "DELETE FROM Order WHERE orderID = ?;";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, orderID);
@@ -130,7 +148,7 @@ public class OrderDAO {
 
     public void deleteOrderFromUser(int orderUserID) {
         try {
-            query = "DELETE FROM order WHERE orderUserID = ?;";
+            query = "DELETE FROM Order WHERE orderUserID = ?;";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, orderUserID);

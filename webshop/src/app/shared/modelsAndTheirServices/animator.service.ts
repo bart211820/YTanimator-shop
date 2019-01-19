@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {ApiService} from "../api.service";
 import {AuthorizationService} from "../authorization.service";
 import {Animator} from "./animator";
+import {Basket} from "./basket";
 
 @Injectable({
   providedIn: ApiService,
@@ -31,6 +32,18 @@ export class AnimatorService {
       },
       error => {
         alert('Could not make a new animator.');
+      }
+    );
+  }
+
+  public update(animator: Animator): void {
+    const data = animator.getData();
+    this.api.put<void>('animators' + animator.getAnimatorID(), data).subscribe (
+      data => {
+        console.log('Animator has been updated.');
+      },
+      error => {
+        console.log('Animator has NOT been updated!!! D:');
       }
     );
   }

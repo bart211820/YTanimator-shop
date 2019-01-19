@@ -90,6 +90,23 @@ public class AnimatorDAO {
         }
     }
 
+    public void updateAnimator(String animatorName, String animatorLink, String animatorImage, int animatorID) {
+        try {
+            query = "UPDATE Animator animatorName = ?, animatorLink = ?, animatorImage = ? WHERE animatorID = ?";
+
+            statement = database.prepareStatement(query);
+            statement.setString(1, animatorName);
+            statement.setString(2, animatorLink);
+            statement.setString(3, animatorImage);
+            statement.setInt(4, animatorID);
+
+            database.update(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void deleteAnimator(int animatorID) {
         try {
             query = "DELETE FROM animator WHERE animatorID = ?;";

@@ -111,6 +111,23 @@ public class BasketDAO {
         }
     }
 
+    public void updateBasket(int basketUserID, int baskedItemID, int basketAmount, int basketID) {
+        try {
+            query = "UPDATE Basket basketUserID = ?, baskedItemID = ?, basketAmount = ? WHERE basketID = ?";
+
+            statement = database.prepareStatement(query);
+            statement.setInt(1, basketUserID);
+            statement.setInt(2, baskedItemID);
+            statement.setInt(3, basketAmount);
+            statement.setInt(4, basketID);
+
+            database.update(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void deleteBasket(int basketID) {
         try {
             query = "DELETE FROM basket WHERE basketID = ?;";

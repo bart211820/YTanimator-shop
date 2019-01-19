@@ -3,6 +3,7 @@ package nl.hsleiden.persistence;
 import nl.hsleiden.Database;
 import nl.hsleiden.model.Item;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -88,6 +89,26 @@ public class ItemDAO {
             statement.setString(4, itemImage);
             statement.setString(5, itemType);
             statement.setInt(5, itemAnimatorID);
+
+            database.update(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateItem(String itemName, String itemDescription, double itemPrice, String itemImage, String itemType, int itemAnimatorID, int itemID) {
+        try {
+            query = "UPDATE Item itemName = ?, itemDescription = ?, itemPrice = ?, itemImage = ?, itemType = ?, itemAnimatorID = ? WHERE itemID = ?";
+
+            statement = database.prepareStatement(query);
+            statement.setString(1, itemName);
+            statement.setString(2, itemDescription);
+            statement.setDouble(3, itemPrice);
+            statement.setString(4, itemImage);
+            statement.setString(5, itemType);
+            statement.setInt(4, itemAnimatorID);
+            statement.setInt(5, itemID);
 
             database.update(statement);
         }

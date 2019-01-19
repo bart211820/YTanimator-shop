@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {ApiService} from "../api.service";
 import {AuthorizationService} from "../authorization.service";
 import {Order} from "./order";
+import {User} from "./user";
 
 @Injectable({
   providedIn: ApiService,
@@ -35,6 +36,18 @@ export class OrderService {
       },
       error => {
         alert('Could not make a new order.');
+      }
+    );
+  }
+
+  public update(order: Order): void {
+    const data = order.getData();
+    this.api.put<void>('orders/' + order.getOrderID(), data).subscribe (
+      data => {
+        console.log('Order has been updated.');
+      },
+      error => {
+        console.log('Order has NOT been updated!!! D:');
       }
     );
   }

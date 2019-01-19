@@ -3,11 +3,9 @@ package nl.hsleiden.resource;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.inject.Singleton;
 import nl.hsleiden.View;
-import nl.hsleiden.model.Basket;
 import nl.hsleiden.model.Item;
 import nl.hsleiden.service.ItemService;
 
-import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -47,6 +45,15 @@ public class ItemResource {
     public void create(Item item)
     {
         service.create(item);
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JsonView(View.Protected.class)
+    public void update(@PathParam("id") int id, Item item)
+    {
+        service.update(id, item);
     }
 
     @DELETE

@@ -1,8 +1,6 @@
 package nl.hsleiden.service;
 
-import nl.hsleiden.model.Animator;
 import nl.hsleiden.model.Order;
-import nl.hsleiden.persistence.AnimatorDAO;
 import nl.hsleiden.persistence.OrderDAO;
 
 import javax.inject.Inject;
@@ -34,6 +32,14 @@ public class OrderService {
 
     public void create(Order order) {
         dao.createOrder(order.getOrderUserID(), order.getOrderItemID(), order.getOrderItemAmount(), order.getOrderDelivery());
+    }
+
+    public void update(int orderID, Order order)
+    {
+        // Controleren of deze order wel bestaat
+        Order oldOrder = getOne(orderID);
+
+        dao.updateOrder(order.getOrderUserID(), order.getOrderItemID(), order.getOrderItemAmount(), order.getOrderDelivery(), order.getOrderID());
     }
 
     public void delete(int orderID) { dao.deleteOrder(orderID); }
