@@ -9,8 +9,8 @@ import { FooterComponent } from './webshop/footer/footer.component';
 import { HeaderComponent } from './webshop/header/header.component';
 import { ShopComponent } from './webshop/shop/shop.component';
 import { ShopItemComponent } from './webshop/shop/shop-item/shop-item.component';
-import { AboutComponent } from './webshop/about/about.component';
-import {ItemComponent} from "./webshop/item/item.component";
+import { ItemComponent } from "./webshop/item/item.component";
+import { RegistInComponent } from "./webshop/regist-in/regist-in.component";
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import {ItemComponent} from "./webshop/item/item.component";
     HeaderComponent,
     ShopComponent,
     ShopItemComponent,
-    AboutComponent,
-    ItemComponent
+    ItemComponent,
+    RegistInComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+#registInBackground{
+  min-height: 80vh;
+  width: 100%;
+  background-image: url(https://i.ytimg.com/vi/OJXP7s7_EVQ/maxresdefault.jpg);
+  background-size: 100% 150%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  padding-top: 17.5vh;
+}
+
+#registInContainer{
+  width: 40vw;
+  min-height: 1vh;
+  background-color: #a8ccf0;
+  margin: 0vh auto;
+}

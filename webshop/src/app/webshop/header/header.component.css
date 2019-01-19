@@ -32,3 +32,22 @@ header{
 .activePage{
   background-color: #5299e0;
 }
+
+#headerRight{
+  position: absolute;
+  height: 8vh;
+  right: 0;
+}
+
+#myAccountLink{
+  background-image: url(https://art.pixilart.com/121acf26d7b0be6.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 7.5vh;
+  height: 7.5vh;
+  margin-top: 0.25vh;
+  margin-right: 1.25vh;
+  display: block;
+}
+
