@@ -59,7 +59,7 @@ public class UserResource
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
-    public void create(@Valid User user)
+    public void create(User user)
     {
         service.add(user);
     }

@@ -28,17 +28,26 @@ public class UserDAO
     
     public UserDAO()
     {
+        User user = new User();
+        user.setUserID(1);
+        user.setFullName("admin");
+        user.setPostcode("admin");
+        user.setStreetnumber("admin");
+        user.setEmailAddress("admin"); // User name
+        user.setPassword("admin"); // Password
+        user.setRoles(new String[] { "GUEST", "ADMIN" });
+
         User user1 = new User();
-        user1.setUserID(1);
+        user1.setUserID(2);
         user1.setFullName("First user");
         user1.setPostcode("1234AB");
         user1.setStreetnumber("12");
         user1.setEmailAddress("first@user.com");
         user1.setPassword("first");
         user1.setRoles(new String[] { "GUEST", "ADMIN" });
-        
+
         User user2 = new User();
-        user2.setUserID(2);
+        user2.setUserID(3);
         user2.setFullName("Second user");
         user2.setPostcode("9876ZY");
         user2.setStreetnumber("98");
@@ -47,6 +56,7 @@ public class UserDAO
         user2.setRoles(new String[] { "GUEST" });
 
         fakeUsers = new ArrayList<>();
+        fakeUsers.add(user);
         fakeUsers.add(user1);
         fakeUsers.add(user2);
 

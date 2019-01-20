@@ -5,8 +5,8 @@ import {Subject} from 'rxjs';
 export class AuthorizationService {
   // private login: string = null;
   // private password: string = null;
-  private login = 'admin';
-  private password = 'admin';
+  public login = 'admin';
+  public password = 'admin';
   private authenticator: object = null;
 
   public authorized$ = new Subject<boolean>();

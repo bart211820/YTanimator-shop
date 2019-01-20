@@ -13,4 +13,52 @@
   min-height: 1vh;
   background-color: #a8ccf0;
   margin: 0vh auto;
+  padding-bottom: 1.5vh;
+}
+
+h2{
+  text-align: center;
+  font-size: 1.9vw;
+  margin-bottom: 1.4vh;
+}
+
+form{
+  display: block;
+  margin: 0px auto;
+  width: 65%;
+  padding-bottom: 2vh;
+}
+
+.formRow{
+  margin: 0.1vh auto;
+  margin-bottom: 0.3vh;
+  height: 2.4vw;
+}
+
+form .formRow label{
+  float: left;
+  font-size: 1.5vw;
+  margin-right: 0.5vw;
+  width: 9vw;
+
+}
+
+form .formRow input{
+  float: left;
+  font-size: 1.4vw;
+}
+
+form .yamsButton{
+  display: block;
+  width: 80%;
+  margin: 0.9vh auto;
+  font-size: 1.5vw;
+  height: 3vw;
+  border: none;
+}
+
+.otherFormOption{
+  padding-left: 1vw;
+  font-size: 1.4vw;
+  cursor: pointer;
 }

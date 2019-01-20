@@ -11,6 +11,12 @@ import { ShopComponent } from './webshop/shop/shop.component';
 import { ShopItemComponent } from './webshop/shop/shop-item/shop-item.component';
 import { ItemComponent } from "./webshop/item/item.component";
 import { RegistInComponent } from "./webshop/regist-in/regist-in.component";
+import { LoginComponent } from "./webshop/regist-in/login/login.component";
+import { RegisterComponent } from "./webshop/regist-in/register/register.component";
+import { FormsModule } from "@angular/forms";
+import { AdminIndexComponent } from "./admin/admin-index/admin-index.component";
+import { MeComponent } from './webshop/me/me.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +26,18 @@ import { RegistInComponent } from "./webshop/regist-in/regist-in.component";
     ShopComponent,
     ShopItemComponent,
     ItemComponent,
-    RegistInComponent
+    RegistInComponent,
+    LoginComponent,
+    RegisterComponent,
+    AdminIndexComponent,
+    MeComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     HttpClientModule,

@@ -29,11 +29,13 @@ export class UserService
   {
     let data = user.getData();
 
+    console.log(data);
+
     this.api.post<void>('users', data).subscribe
     (
       data =>
       {
-        this.goHome();
+        this.login(user, true);
       },
       error =>
       {
@@ -44,18 +46,17 @@ export class UserService
 
   public login(user: User, remember: boolean): void
   {
-    this.authService.setAuthorization(user.getEmailAdress(), user.getPassword());
+    this.authService.setAuthorization(user.getEmailAddress(), user.getPassword());
+    console.log(this.authService.login);
+    console.log(this.authService.password);
 
-    this.api.get<User>('users/me').subscribe
-    (
-      authenticator =>
-      {
+    this.api.get<User>('users/me').subscribe (
+      authenticator => {
         this.authService.storeAuthorization(authenticator, remember);
 
-        this.goHome();
+        this.goToPageAfterLogin(authenticator);
       },
-      error =>
-      {
+      error => {
         alert('Het inloggen is mislukt');
       }
     );
@@ -71,6 +72,14 @@ export class UserService
   private goHome()
   {
     this.router.navigate(['']);
+  }
+
+  private goToPageAfterLogin(user){
+    if (user.roles.includes('ADMIN')) {
+      this.router.navigate(['/admin']);
+    } else {
+      this.router.navigate(['/me']);
+    }
   }
 
   public update(user: User): void {

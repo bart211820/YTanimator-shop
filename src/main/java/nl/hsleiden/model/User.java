@@ -16,36 +16,12 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class User implements Principal
 {
-    @NotEmpty
-    @JsonView(View.Public.class)
     private int userID;
-
-    @NotEmpty
-    @Length(min = 3, max = 100)
-    @JsonView(View.Public.class)
     private String fullName;
-
-    @NotEmpty
-    @Length(min = 6, max = 7)
-    @JsonView(View.Public.class)
     private String postcode;
-
-    @NotEmpty
-    @Length(min = 1, max = 10)
-    @JsonView(View.Public.class)
     private String streetnumber;
-
-    @NotEmpty
-    @Email
-    @JsonView(View.Public.class)
     private String emailAddress;
-
-    @NotEmpty
-    @Length(min = 8)
-    @JsonView(View.Protected.class)
     private String password;
-
-    @JsonView(View.Private.class)
     private String[] roles;
 
     public User() {

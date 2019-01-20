@@ -1,19 +1,19 @@
 export class User {
 
   private userID;
-  private fullname;
+  private fullName;
   private postcode;
   private streetnumber;
-  private emailAdress;
+  private emailAddress;
   private password;
   private roles;
 
   constructor(private data?) {
     this.userID = data.userID;
-    this.fullname = data.fullname;
+    this.fullName = data.fullName;
     this.postcode = data.postcode;
     this.streetnumber = data.streetnumber;
-    this.emailAdress = data.emailAdress;
+    this.emailAddress = data.emailAddress;
     this.password = data.password;
     this.roles = data.roles;
   }
@@ -21,10 +21,10 @@ export class User {
   public getData() {
     const data = {
       userID: this.userID,
-      fullname: this.fullname,
+      fullName: this.fullName,
       postcode: this.postcode,
       streetnumber: this.streetnumber,
-      emailAdress: this.emailAdress,
+      emailAddress: this.emailAddress,
       password: this.password,
       roles: this.roles
     };
@@ -35,8 +35,8 @@ export class User {
     return this.userID;
   }
 
-  public getFullname() {
-    return this.fullname;
+  public getFullName() {
+    return this.fullName;
   }
 
   public getPostcode() {
@@ -47,8 +47,8 @@ export class User {
     return this.streetnumber;
   }
 
-  public getEmailAdress() {
-    return this.emailAdress;
+  public getEmailAddress() {
+    return this.emailAddress;
   }
 
   public getPassword() {

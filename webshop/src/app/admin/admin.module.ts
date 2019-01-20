@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AdminIndexComponent } from './admin-index/admin-index.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [AdminIndexComponent],
   imports: [
     CommonModule
   ]
