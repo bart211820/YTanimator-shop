@@ -69,12 +69,13 @@ export class UserService
     this.goHome();
   }
 
-  private goHome()
+  public goHome()
   {
     this.router.navigate(['']);
   }
 
-  private goToPageAfterLogin(user){
+  public goToPageAfterLogin(user){
+    console.log(user);
     if (user.roles.includes('ADMIN')) {
       this.router.navigate(['/admin']);
     } else {
