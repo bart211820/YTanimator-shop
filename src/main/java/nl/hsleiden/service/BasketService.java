@@ -31,7 +31,7 @@ public class BasketService {
     }
 
     public void create(Basket basket) {
-        dao.createBasket(basket.getBaskedUserID(), basket.getBaskedItemID(), basket.getBaskedItemAmount());
+        dao.createBasket(basket.getBasketUserID(), basket.getBasketItemID(), basket.getBasketItemAmount());
     }
 
     public void update(int basketID, Basket basket)
@@ -39,7 +39,7 @@ public class BasketService {
         // Controleren of deze basket wel bestaat
         Basket oldBasket = getOne(basketID);
 
-        dao.updateBasket(basket.getBaskedUserID(), basket.getBaskedItemID(), basket.getBaskedItemAmount(), basket.getBaskedID());
+        dao.updateBasket(basket.getBasketUserID(), basket.getBasketItemID(), basket.getBasketItemAmount(), basket.getBasketID());
     }
 
     public void delete(int basketID) { dao.deleteBasket(basketID); }

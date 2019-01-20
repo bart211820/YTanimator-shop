@@ -42,7 +42,7 @@ public class OrderResource {
     @GET
     @Path("/from/{userID}")
     @JsonView(View.Public.class)
-    public Collection<Order> retrieveFromUser( int userID) { return service.getOrdersFromUser(userID); }
+    public Collection<Order> retrieveFromUser(@PathParam("userID") int userID) { return service.getOrdersFromUser(userID); }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

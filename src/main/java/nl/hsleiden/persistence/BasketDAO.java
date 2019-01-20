@@ -28,10 +28,10 @@ public class BasketDAO {
 
         while (baskets.next()){
             Basket basket = new Basket(
-                    baskets.getInt("baskedID"),
-                    baskets.getInt("baskedUserID"),
-                    baskets.getInt("baskedItemID"),
-                    baskets.getInt("baskedItemAmount")
+                    baskets.getInt("basketID"),
+                    baskets.getInt("basketUserID"),
+                    baskets.getInt("basketItemID"),
+                    baskets.getInt("basketItemAmount")
             );
 
             resultList.add(basket);
@@ -111,13 +111,13 @@ public class BasketDAO {
         }
     }
 
-    public void updateBasket(int basketUserID, int baskedItemID, int basketAmount, int basketID) {
+    public void updateBasket(int basketUserID, int basketItemID, int basketAmount, int basketID) {
         try {
-            query = "UPDATE Basket basketUserID = ?, baskedItemID = ?, basketAmount = ? WHERE basketID = ?";
+            query = "UPDATE Basket basketUserID = ?, basketItemID = ?, basketAmount = ? WHERE basketID = ?";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, basketUserID);
-            statement.setInt(2, baskedItemID);
+            statement.setInt(2, basketItemID);
             statement.setInt(3, basketAmount);
             statement.setInt(4, basketID);
 

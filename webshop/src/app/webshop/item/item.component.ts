@@ -44,7 +44,6 @@ export class ItemComponent implements OnInit {
   getAnimator(): void {
     this.animator.subscribe(data => {
       this.animatorObject = new Animator(data);
-      console.log(this.animatorObject)
     });
   }
 

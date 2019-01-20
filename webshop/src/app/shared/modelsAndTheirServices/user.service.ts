@@ -52,8 +52,6 @@ export class UserService
   public login(user: User, remember: boolean): void
   {
     this.authService.setAuthorization(user.getEmailAddress(), user.getPassword());
-    console.log(this.authService.login);
-    console.log(this.authService.password);
 
     this.api.get<User>('users/me').subscribe (
       authenticator => {

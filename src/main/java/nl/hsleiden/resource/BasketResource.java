@@ -42,7 +42,7 @@ public class BasketResource {
     @GET
     @Path("/from/{userID}")
     @JsonView(View.Public.class)
-    public Collection<Basket> retrieveFromUser( int userID) { return service.getBasketsFromUser(userID); }
+    public Collection<Basket> retrieveFromUser(@PathParam("userID") int userID) { return service.getBasketsFromUser(userID); }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

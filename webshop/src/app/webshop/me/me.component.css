@@ -12,3 +12,27 @@
   margin-bottom: 3.5vh;
 }
 
+h2{
+  font-size: 1.9vw;
+  margin-bottom: 0.8vh;
+}
+
+.itemsHolder{
+
+}
+
+.itemContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.itemContainer div{
+  border-top: 0.1vh solid #4290de;
+  border-left: 0.1vh solid #4290de;
+  border-right: 0.1vh solid #4290de;
+  border-bottom: 0.1vh solid #4290de;
+  height: 10vw;
+  font-size: 1.4vw;
+}

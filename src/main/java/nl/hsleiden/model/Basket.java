@@ -1,51 +1,51 @@
 package nl.hsleiden.model;
 
 public class Basket {
-    private int baskedID;
-    private int baskedUserID;
-    private int baskedItemID;
-    private int baskedItemAmount;
+    private int basketID;
+    private int basketUserID;
+    private int basketItemID;
+    private int basketItemAmount;
 
     public Basket() {
 
     }
 
-    public Basket(int baskedID, int baskedUserID, int baskedItemID, int baskedItemAmount) {
-        this.baskedID = baskedID;
-        this.baskedUserID = baskedUserID;
-        this.baskedItemID = baskedItemID;
-        this.baskedItemAmount = baskedItemAmount;
+    public Basket(int basketID, int basketUserID, int basketItemID, int basketItemAmount) {
+        this.basketID = basketID;
+        this.basketUserID = basketUserID;
+        this.basketItemID = basketItemID;
+        this.basketItemAmount = basketItemAmount;
     }
 
-    public int getBaskedID() {
-        return baskedID;
+    public int getBasketID() {
+        return basketID;
     }
 
-    public void setBaskedID(int baskedID) {
-        this.baskedID = baskedID;
+    public void setBasketID(int basketID) {
+        this.basketID = basketID;
     }
 
-    public int getBaskedUserID() {
-        return baskedUserID;
+    public int getBasketUserID() {
+        return basketUserID;
     }
 
-    public void setBaskedUserID(int baskedUserID) {
-        this.baskedUserID = baskedUserID;
+    public void setBasketUserID(int basketUserID) {
+        this.basketUserID = basketUserID;
     }
 
-    public int getBaskedItemID() {
-        return baskedItemID;
+    public int getBasketItemID() {
+        return basketItemID;
     }
 
-    public void setBaskedItemID(int baskedItemID) {
-        this.baskedItemID = baskedItemID;
+    public void setBasketItemID(int basketItemID) {
+        this.basketItemID = basketItemID;
     }
 
-    public int getBaskedItemAmount() {
-        return baskedItemAmount;
+    public int getBasketItemAmount() {
+        return basketItemAmount;
     }
 
-    public void setBaskedItemAmount(int baskedItemAmount) {
-        this.baskedItemAmount = baskedItemAmount;
+    public void setBasketItemAmount(int basketItemAmount) {
+        this.basketItemAmount = basketItemAmount;
     }
 }

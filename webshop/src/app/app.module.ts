@@ -20,6 +20,8 @@ import { AdminComponent } from './admin/admin.component';
 import { BasketListComponent } from './webshop/me/basket-list/basket-list.component';
 import { OrderListComponent } from './webshop/me/order-list/order-list.component';
 import { AccountComponent } from './webshop/me/account/account.component';
+import { BasketItemComponent } from './webshop/me/basket-list/basket-item/basket-item.component';
+import { OrderItemComponent } from './webshop/me/order-list/order-item/order-item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { AccountComponent } from './webshop/me/account/account.component';
     AdminComponent,
     BasketListComponent,
     OrderListComponent,
-    AccountComponent
+    AccountComponent,
+    BasketItemComponent,
+    OrderItemComponent
   ],
   imports: [
     BrowserModule,

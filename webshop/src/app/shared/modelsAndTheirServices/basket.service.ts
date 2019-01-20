@@ -24,6 +24,7 @@ export class BasketService {
   }
 
   public getFromUser(basketUserID: number): Observable<Basket[]> {
+    console.log('baskets/from/' + basketUserID);
     return this.api.get<Basket[]>('baskets/from/' + basketUserID);
   }
 
@@ -42,7 +43,7 @@ export class BasketService {
 
   public update(basket: Basket): void {
     const data = basket.getData();
-    this.api.put<void>('baskets' + basket.getBasketID(), data).subscribe (
+    this.api.put<void>('baskets/' + basket.getBasketID(), data).subscribe (
       data => {
         console.log('Basket has been updated.');
       },

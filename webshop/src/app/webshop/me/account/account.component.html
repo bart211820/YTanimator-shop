@@ -2,7 +2,7 @@
   <button (click)="logOut()" id="logOutButton" class="yamsButton">Log out</button>
   <img src="https://art.pixilart.com/121acf26d7b0be6.png" alt="profileImage" id="profileImage">
   <div id="accountDetails">
-    <h1>Welcome Admin, here is your current data:</h1>
+    <h1>Welcome {{ fullName }}, here is all your data:</h1>
     <form (ngSubmit)="editAccount(f)" #f="ngForm">
       <div class="accountInfoHolder">
         <label>Fullname:</label>

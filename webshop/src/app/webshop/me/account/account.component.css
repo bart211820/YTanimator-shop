@@ -2,6 +2,10 @@
   height: 20vw;
 }
 
+h1{
+  font-size: 2.5vw;
+}
+
 #logOutButton{
   position: absolute;
   border: none;
