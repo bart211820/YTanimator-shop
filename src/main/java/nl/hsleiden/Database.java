@@ -51,6 +51,6 @@ public class Database {
     }
 
     public void update(PreparedStatement statement) throws SQLException {
-        statement.executeUpdate();
+        // statement.executeUpdate();
     }
 }

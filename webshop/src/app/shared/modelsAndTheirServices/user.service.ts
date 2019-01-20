@@ -25,6 +25,11 @@ export class UserService
     return this.api.get<User[]>('users');
   }
 
+  public getOne(userID: number): Observable<User[]>
+  {
+    return this.api.get<User[]>('users/' + userID);
+  }
+
   public register(user: User): void
   {
     let data = user.getData();
@@ -85,7 +90,7 @@ export class UserService
 
   public update(user: User): void {
     const data = user.getData();
-    this.api.put<void>('users' + user.getUserID(), data).subscribe (
+    this.api.put<void>('users/' + user.getUserID(), data).subscribe (
       data => {
         console.log('User has been updated.');
       },

@@ -17,6 +17,9 @@ import { FormsModule } from "@angular/forms";
 import { AdminIndexComponent } from "./admin/admin-index/admin-index.component";
 import { MeComponent } from './webshop/me/me.component';
 import { AdminComponent } from './admin/admin.component';
+import { BasketListComponent } from './webshop/me/basket-list/basket-list.component';
+import { OrderListComponent } from './webshop/me/order-list/order-list.component';
+import { AccountComponent } from './webshop/me/account/account.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { AdminComponent } from './admin/admin.component';
     RegisterComponent,
     AdminIndexComponent,
     MeComponent,
-    AdminComponent
+    AdminComponent,
+    BasketListComponent,
+    OrderListComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
