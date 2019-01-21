@@ -95,6 +95,24 @@ public class BasketDAO {
         return temporaryList;
     }
 
+    public List<Basket> getBasketsFromUserWithItem(int basketUserID, int basketItemID) {
+        //        try {
+//            query = "SELECT * FROM Basket WHERE basketUserID = ? AND basketItemID = ?;";
+//            statement.setInt(1, basketUserID);
+        //    statement.setInt(2, basketItemID);
+//            statement = database.prepareStatement(query);
+//
+//            return selectBaskets(statement).get(0);
+//        }
+//        catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+        Basket basket1 = new Basket(1, 1, 1, 1);
+        List temporaryList = new ArrayList();
+        temporaryList.add(basket1);
+        return temporaryList;
+    }
+
     public void createBasket(int basketUserID, int basketItemID, int basketItemAmount) {
         try {
             query = "INSERT INTO Basket (basketUserID, basketItemID, basketItemAmount) VALUES (?, ?, ?);";

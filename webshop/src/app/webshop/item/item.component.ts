@@ -6,6 +6,8 @@ import {ItemService} from "../../shared/modelsAndTheirServices/item.service";
 import {Item} from "../../shared/modelsAndTheirServices/item";
 import {AnimatorService} from "../../shared/modelsAndTheirServices/animator.service";
 import {Animator} from "../../shared/modelsAndTheirServices/animator";
+import {Basket} from "../../shared/modelsAndTheirServices/basket";
+import {BasketService} from "../../shared/modelsAndTheirServices/basket.service";
 
 @Component({
   selector: 'app-item',
@@ -15,7 +17,8 @@ import {Animator} from "../../shared/modelsAndTheirServices/animator";
     ApiService,
     AuthorizationService,
     ItemService,
-    AnimatorService
+    AnimatorService,
+    BasketService
   ]
 })
 export class ItemComponent implements OnInit {
@@ -23,10 +26,12 @@ export class ItemComponent implements OnInit {
   private itemObject: Item;
   private animator;
   private animatorObject: Animator;
+  private basket;
+  private basketObject: Basket;
   private itemID;
   private readyToDisplay = false;
 
-  constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService, private animatorService: AnimatorService, private route: ActivatedRoute) { }
+  constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService, private animatorService: AnimatorService, private basketService: BasketService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.itemID = this.route.snapshot.params['id'];
@@ -46,6 +51,41 @@ export class ItemComponent implements OnInit {
     this.animator.subscribe(data => {
       this.animatorObject = new Animator(data);
       this.readyToDisplay = true;
+    });
+  }
+
+  tryAddToCard() {
+    const session = JSON.parse(window.localStorage.getItem('authorization'));
+    if(session == undefined){
+      this.router.navigate(['/login']);
+    }
+    else {
+      this.getMyBasketFromAPI(session.authenticator.userID);
+    }
+  }
+
+  getMyBasketFromAPI(userID: number) {
+    this.basket = this.basketService.getFromUserWithItem(userID, this.itemID);
+    this.addItemToCard(userID);
+  }
+
+  addItemToCard(userID: number) {
+    this.basket.subscribe(data => {
+      if(data.length == 0){
+        const basketData = {
+          basketID: undefined,
+          basketUserID: userID,
+          basketItemID: this.itemID,
+          basketItemAmount: 1
+        };
+        this.basketObject = new Basket(basketData);
+        this.basketService.create(this.basketObject);
+      }
+      else {
+        this.basketObject = new Basket(data[0]);
+        this.basketObject.addAnotherOne();
+        this.basketService.update(this.basketObject);
+      }
     });
   }
 

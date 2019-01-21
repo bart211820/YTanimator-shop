@@ -15,6 +15,6 @@
     </div>
     <p>{{ itemObject.getItemDescription() }}</p>
     <div id="itemPrice"><h6>&euro; {{ itemObject.getItemPrice() }}</h6></div>
-    <div class="yamsButton">Add to cart</div>
+    <div class="yamsButton" (click)="tryAddToCard()">Add to cart</div>
   </div>
 </div>

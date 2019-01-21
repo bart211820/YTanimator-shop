@@ -44,6 +44,11 @@ public class BasketResource {
     @JsonView(View.Public.class)
     public Collection<Basket> retrieveFromUser(@PathParam("userID") int userID) { return service.getBasketsFromUser(userID); }
 
+    @GET
+    @Path("/from/{userID}/{itemID}")
+    @JsonView(View.Public.class)
+    public Collection<Basket> retrieveFromUserWithItem(@PathParam("userID") int userID, @PathParam("itemID") int itemID) { return service.getBasketsFromUserWithItem(userID, itemID); }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)

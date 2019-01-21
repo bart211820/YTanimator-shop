@@ -27,6 +27,10 @@ export class BasketService {
     return this.api.get<Basket[]>('baskets/from/' + basketUserID);
   }
 
+  public getFromUserWithItem(basketUserID: number, basketItemID: number): Observable<Basket[]> {
+    return this.api.get<Basket[]>('baskets/from/' + basketUserID + '/' + basketItemID);
+  }
+
   public create(basket: Basket): void {
     const data = basket.getData();
     this.api.post<void>('baskets', data).subscribe (

@@ -25,9 +25,12 @@ public class BasketService {
         return dao.getBasket(orderID);
     }
 
-    public Collection<Basket> getBasketsFromUser(int userID)
-    {
+    public Collection<Basket> getBasketsFromUser(int userID) {
         return dao.getBasketsFromUser(userID);
+    }
+
+    public Collection<Basket> getBasketsFromUserWithItem(int userID, int itemID) {
+        return dao.getBasketsFromUserWithItem(userID, itemID);
     }
 
     public void create(Basket basket) {
