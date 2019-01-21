@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminIndexComponent implements OnInit {
 
+  private loginName = '';
+
   constructor() { }
 
   ngOnInit() {
+    const session = JSON.parse(window.localStorage.getItem('authorization'));
+    this.loginName = session.authenticator.fullName;
   }
 
 }

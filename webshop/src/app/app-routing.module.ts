@@ -6,6 +6,9 @@ import { RegistInComponent } from "./webshop/regist-in/regist-in.component";
 import { MeComponent } from "./webshop/me/me.component";
 import { AdminIndexComponent } from "./admin/admin-index/admin-index.component";
 import { AdminComponent } from "./admin/admin.component";
+import {ManageItemsComponent} from "./admin/manage-items/manage-items.component";
+import {ManageAnimatorsComponent} from "./admin/manage-animators/manage-animators.component";
+import {MakeAdminComponent} from "./admin/make-admin/make-admin.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'shop', pathMatch: 'full' },
@@ -16,6 +19,9 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, children: [
       { path: '', redirectTo: '/admin/index', pathMatch: 'full'},
       { path: 'index', component: AdminIndexComponent },
+      { path: 'items', component: ManageItemsComponent },
+      { path: 'animators', component: ManageAnimatorsComponent },
+      { path: 'admins', component: MakeAdminComponent }
       ]},
   { path: '**', redirectTo: 'shop' },
 ];

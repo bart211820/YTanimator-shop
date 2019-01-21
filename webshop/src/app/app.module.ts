@@ -22,6 +22,12 @@ import { OrderListComponent } from './webshop/me/order-list/order-list.component
 import { AccountComponent } from './webshop/me/account/account.component';
 import { BasketItemComponent } from './webshop/me/basket-list/basket-item/basket-item.component';
 import { OrderItemComponent } from './webshop/me/order-list/order-item/order-item.component';
+import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { ManageItemsComponent } from './admin/manage-items/manage-items.component';
+import { ItemRowComponent } from './admin/manage-items/item-row/item-row.component';
+import { ManageAnimatorsComponent } from './admin/manage-animators/manage-animators.component';
+import { AnimatorRowComponent } from './admin/manage-animators/animator-row/animator-row.component';
+import { MakeAdminComponent } from './admin/make-admin/make-admin.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +47,13 @@ import { OrderItemComponent } from './webshop/me/order-list/order-item/order-ite
     OrderListComponent,
     AccountComponent,
     BasketItemComponent,
-    OrderItemComponent
+    OrderItemComponent,
+    AdminHeaderComponent,
+    ManageItemsComponent,
+    ItemRowComponent,
+    ManageAnimatorsComponent,
+    AnimatorRowComponent,
+    MakeAdminComponent
   ],
   imports: [
     BrowserModule,
