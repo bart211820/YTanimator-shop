@@ -1,3 +1,17 @@
-<p>
-  order-item works!
-</p>
+<div class="itemContainer" *ngIf="readyToDisplay">
+  <div class="itemImageContainer">
+    <img src="{{ itemObject.getItemImage() }}" alt="{{ itemObject.getItemName() }}">
+  </div>
+  <div class="itemNameContainer">
+    {{ itemObject.getItemName() }}
+  </div>
+  <div class="itemPriceContainer">
+    &euro; {{ itemObject.getItemPrice() }} (per Unit)
+  </div>
+  <div class="itemAmountContainer">
+    x{{ order.getOrderItemAmount() }}
+  </div>
+  <div class="deliveryDateContainer">
+    Delivered on:&nbsp;&nbsp;&nbsp;{{ order.getOrderDelivery() | date}}
+  </div>
+</div>

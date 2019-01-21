@@ -24,7 +24,6 @@ export class BasketService {
   }
 
   public getFromUser(basketUserID: number): Observable<Basket[]> {
-    console.log('baskets/from/' + basketUserID);
     return this.api.get<Basket[]>('baskets/from/' + basketUserID);
   }
 

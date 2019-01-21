@@ -28,6 +28,7 @@ export class BasketListComponent implements OnInit {
   private basketList = [];
   private itemList = [];
   private totalPrice = 0;
+  private readyToDisplay = false;
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private basketService: BasketService, private itemService: ItemService, private orderService: OrderService) { }
 
@@ -48,6 +49,7 @@ export class BasketListComponent implements OnInit {
         this.basketList.push(new Basket(basketData));
       }
       this.getItemsFromAPI();
+      this.readyToDisplay = true;
     });
   }
 

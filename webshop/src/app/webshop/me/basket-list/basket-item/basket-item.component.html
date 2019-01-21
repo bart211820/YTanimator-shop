@@ -1,4 +1,4 @@
-<div class="itemContainer">
+<div class="itemContainer" *ngIf="readyToDisplay">
   <div class="itemImageContainer">
     <img src="{{ itemObject.getItemImage() }}" alt="{{ itemObject.getItemName() }}">
   </div>
@@ -15,7 +15,7 @@
     </form>
   </div>
   <div class="itemRemoveContainer">
-    <form (ngSubmit)="updateAmount(f)" #f="ngForm">
+    <form (ngSubmit)="removeBasket(f)" #f="ngForm">
       <button value="Remove item" class="redYamsButton" type="submit">Remove item</button>
     </form>
   </div>

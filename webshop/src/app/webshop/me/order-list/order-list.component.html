@@ -1,3 +1,4 @@
-<p>
-  order-list works!
-</p>
+<h2>Your orders:</h2>
+<div class="itemsHolder" *ngIf="readyToDisplay">
+  <app-order-item *ngFor="let thisOrder of orderList" [order]="thisOrder"></app-order-item>
+</div>

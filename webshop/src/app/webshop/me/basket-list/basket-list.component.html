@@ -1,5 +1,5 @@
 <h2>Your basket:</h2>
-<div class="itemsHolder">
+<div class="itemsHolder" *ngIf="readyToDisplay">
   <app-basket-item *ngFor="let thisBasket of basketList" [basket]="thisBasket" (totalPriceUpdate)="recalculateTotalPrice($event)"></app-basket-item>
 </div>
 <form (ngSubmit)="orderEverything(f)" #f="ngForm" id="orderFrom">

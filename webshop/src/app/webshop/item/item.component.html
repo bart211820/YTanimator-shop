@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div id="itemContentContainer">
+<div id="itemContentContainer" *ngIf="readyToDisplay">
   <div id="itemInfoLeft">
     <h2>{{ itemObject.getItemName() }} ({{ itemObject.getItemType() }})</h2>
     <div id="itemShadowGiver"></div>

@@ -26,6 +26,7 @@ export class BasketItemComponent implements OnInit {
   private item;
   private itemObject: Item;
   itemAmount: number;
+  private readyToDisplay = false;
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService, private basketService: BasketService) { }
 
@@ -38,6 +39,7 @@ export class BasketItemComponent implements OnInit {
   getAll(): void {
     this.item.subscribe(data => {
       this.itemObject = new Item(data);
+      this.readyToDisplay = true;
     });
   }
 

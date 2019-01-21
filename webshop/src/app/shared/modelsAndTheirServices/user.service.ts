@@ -34,8 +34,6 @@ export class UserService
   {
     let data = user.getData();
 
-    console.log(data);
-
     this.api.post<void>('users', data).subscribe
     (
       data =>
@@ -78,7 +76,6 @@ export class UserService
   }
 
   public goToPageAfterLogin(user){
-    console.log(user);
     if (user.roles.includes('ADMIN')) {
       this.router.navigate(['/admin']);
     } else {

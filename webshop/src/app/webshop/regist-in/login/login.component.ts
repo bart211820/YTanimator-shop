@@ -25,12 +25,10 @@ export class LoginComponent implements OnInit {
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    const session = JSON.parse(window.localStorage.getItem('authorization'));
-    const singedInAs = session.authenticator.fullName;
+
   }
 
   login() {
-    console.log(this.email);
     const userData = {
       userID: undefined,
       fullName: undefined,

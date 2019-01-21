@@ -20,7 +20,6 @@ export class MeComponent implements OnInit {
     }
     const session = JSON.parse(window.localStorage.getItem('authorization'));
     this.userID = session.authenticator.userID;
-    console.log(this.userID);
   }
 
 }

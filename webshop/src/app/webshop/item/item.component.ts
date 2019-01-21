@@ -24,6 +24,7 @@ export class ItemComponent implements OnInit {
   private animator;
   private animatorObject: Animator;
   private itemID;
+  private readyToDisplay = false;
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService, private animatorService: AnimatorService, private route: ActivatedRoute) { }
 
@@ -44,6 +45,7 @@ export class ItemComponent implements OnInit {
   getAnimator(): void {
     this.animator.subscribe(data => {
       this.animatorObject = new Animator(data);
+      this.readyToDisplay = true;
     });
   }
 
