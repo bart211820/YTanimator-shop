@@ -22,7 +22,7 @@ h2{
   margin-bottom: 1.4vh;
 }
 
-form{
+.registinForm{
   display: block;
   margin: 0px auto;
   width: 65%;
@@ -35,7 +35,7 @@ form{
   height: 2.4vw;
 }
 
-form .formRow label{
+.registinForm .formRow label{
   float: left;
   font-size: 1.5vw;
   margin-right: 0.5vw;
@@ -43,12 +43,12 @@ form .formRow label{
 
 }
 
-form .formRow input{
+.registinForm .formRow input{
   float: left;
   font-size: 1.4vw;
 }
 
-form .yamsButton{
+.registinForm .yamsButton{
   display: block;
   width: 80%;
   margin: 0.9vh auto;
