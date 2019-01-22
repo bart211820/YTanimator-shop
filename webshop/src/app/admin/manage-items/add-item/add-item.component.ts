@@ -1,17 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../../shared/api.service";
 import {AuthorizationService} from "../../../shared/authorization.service";
 import {ItemService} from "../../../shared/modelsAndTheirServices/item.service";
 import {AnimatorService} from "../../../shared/modelsAndTheirServices/animator.service";
 import {Router} from "@angular/router";
-import {Item} from "../../../shared/modelsAndTheirServices/item";
 import {Animator} from "../../../shared/modelsAndTheirServices/animator";
-import {Basket} from "../../../shared/modelsAndTheirServices/basket";
+import {Item} from "../../../shared/modelsAndTheirServices/item";
 
 @Component({
-  selector: 'app-item-row',
-  templateUrl: './item-row.component.html',
-  styleUrls: ['./item-row.component.css'],
+  selector: 'app-add-item',
+  templateUrl: './add-item.component.html',
+  styleUrls: ['./add-item.component.css'],
   providers: [
     ApiService,
     AuthorizationService,
@@ -19,9 +18,8 @@ import {Basket} from "../../../shared/modelsAndTheirServices/basket";
     AnimatorService
   ]
 })
-export class ItemRowComponent implements OnInit {
+export class AddItemComponent implements OnInit {
 
-  @Input() item;
   private itemName;
   private itemDescription;
   private itemPrice;
@@ -31,24 +29,12 @@ export class ItemRowComponent implements OnInit {
 
   private animators;
   private animatorList = [];
-  private readyToDisplay = false;
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService, private animatorService: AnimatorService) { }
 
   ngOnInit() {
-    this.animatorList = [];
-    this.fillAttributes();
     this.animators = this.animatorService.getAll();
     this.getAnimators();
-  }
-
-  fillAttributes() {
-    this.itemName = this.item.getItemName();
-    this.itemDescription = this.item.getItemDescription();
-    this.itemPrice = this.item.getItemPrice();
-    this.itemImage = this.item.getItemImage();
-    this.itemType = this.item.getItemType();
-    this.itemAnimatorID = this.item.getItemAnimatorId();
   }
 
   getAnimators() {
@@ -56,13 +42,12 @@ export class ItemRowComponent implements OnInit {
       for(let animatorData of data) {
         this.animatorList.push(new Animator(animatorData));
       }
-      this.readyToDisplay = true;
     });
   }
 
-  editItem() {
+  makeItem() {
     const itemData = {
-      itemID: this.item.getItemID(),
+      itemID: undefined,
       itemName: this.itemName,
       itemDescription: this.itemDescription,
       itemPrice: this.itemPrice,
@@ -70,11 +55,7 @@ export class ItemRowComponent implements OnInit {
       itemType: this.itemType,
       itemAnimatorID: this.itemAnimatorID
     };
-    const updatedItem = new Item(itemData);
-    this.itemService.update(updatedItem);
+    this.itemService.create(new Item(itemData));
   }
 
-  deleteItem() {
-    this.itemService.delete(this.item.getItemID());
-  }
 }

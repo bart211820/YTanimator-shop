@@ -39,7 +39,7 @@ export class ItemService {
 
   public update(item: Item): void {
     const data = item.getData();
-    this.api.put<void>('items' + item.getItemID(), data).subscribe (
+    this.api.put<void>('items/' + item.getItemID(), data).subscribe (
       data => {
         console.log('Item has been updated.');
       },

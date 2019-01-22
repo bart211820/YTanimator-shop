@@ -28,6 +28,8 @@ import { ItemRowComponent } from './admin/manage-items/item-row/item-row.compone
 import { ManageAnimatorsComponent } from './admin/manage-animators/manage-animators.component';
 import { AnimatorRowComponent } from './admin/manage-animators/animator-row/animator-row.component';
 import { MakeAdminComponent } from './admin/make-admin/make-admin.component';
+import { AddItemComponent } from './admin/manage-items/add-item/add-item.component';
+import { AddAnimatorComponent } from './admin/manage-animators/add-animator/add-animator.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { MakeAdminComponent } from './admin/make-admin/make-admin.component';
     ItemRowComponent,
     ManageAnimatorsComponent,
     AnimatorRowComponent,
-    MakeAdminComponent
+    MakeAdminComponent,
+    AddItemComponent,
+    AddAnimatorComponent
   ],
   imports: [
     BrowserModule,

@@ -67,6 +67,7 @@ export class ApiService {
     let uri = this.createURI(path, queryParameters);
     let headers = this.createRequestHeaders();
 
+    console.log(uri);
     return this.http.delete(uri, { headers: headers });
   }
 
