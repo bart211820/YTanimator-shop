@@ -52,12 +52,26 @@ export class OrderService {
     );
   }
 
-  public delete(orderID: number): Observable<Order[]> {
-    return this.api.delete<Order[]>('orders/' + orderID);
+  public delete(orderID: number): void {
+    this.api.delete<void>('orders/' + orderID).subscribe (
+      data => {
+        console.log('Order got deleted');
+      },
+      error => {
+        alert('Could not delete order!');
+      }
+    );
   }
 
-  public deleteFromUser(orderUserID: number): Observable<Order[]> {
-    return this.api.delete<Order[]>('orders/from/' + orderUserID);
+  public deleteFromUser(orderUserID: number): void {
+    this.api.delete<void>('orders/from/' + orderUserID).subscribe (
+      data => {
+        console.log('Orders got deleted');
+      },
+      error => {
+        alert('Could not delete orders!');
+      }
+    );
   }
 
   public register(order: Order): void {

@@ -48,8 +48,15 @@ export class AnimatorService {
     );
   }
 
-  public delete(animatorID: number): Observable<Animator[]> {
-    return this.api.delete<Animator[]>('animators/' + animatorID);
+  public delete(animatorID: number): void {
+    this.api.delete<void>('animators/' + animatorID).subscribe (
+      data => {
+        console.log('Animator got deleted');
+      },
+      error => {
+        alert('Could not delete animator!');
+      }
+    );
   }
 
   public register(animator: Animator): void {

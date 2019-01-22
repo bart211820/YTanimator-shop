@@ -95,7 +95,14 @@ export class UserService
     );
   }
 
-  public delete(userID: number): Observable<Order[]> {
-    return this.api.delete<Order[]>('users/' + userID);
+  public delete(userID: number): void {
+    this.api.delete<void>('users/' + userID).subscribe (
+      data => {
+        console.log('User got deleted');
+      },
+      error => {
+        alert('Could not delete user!');
+      }
+    );
   }
 }

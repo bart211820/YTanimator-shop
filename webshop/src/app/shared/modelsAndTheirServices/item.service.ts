@@ -49,8 +49,15 @@ export class ItemService {
     );
   }
 
-  public delete(itemID: number): Observable<Item[]> {
-    return this.api.delete<Item[]>('items/' + itemID);
+  public delete(itemID: number): void {
+    this.api.delete<void>('items/' + itemID).subscribe (
+      data => {
+        console.log('Item got deleted');
+      },
+      error => {
+        alert('Could not delete item!');
+      }
+    );
   }
 
   public register(item: Item): void {

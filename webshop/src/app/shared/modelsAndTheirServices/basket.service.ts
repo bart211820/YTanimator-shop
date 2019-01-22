@@ -56,12 +56,26 @@ export class BasketService {
     );
   }
 
-  public delete(basketID: number): Observable<Basket[]> {
-    return this.api.delete<Basket[]>('baskets/' + basketID);
+  public delete(basketID: number): void {
+    this.api.delete<void>('baskets/' + basketID).subscribe (
+      data => {
+        console.log('Basket got deleted');
+      },
+      error => {
+        alert('Could not delete basket!');
+      }
+    );
   }
 
-  public deleteFromUser(basketUserID: number): Observable<Basket[]> {
-    return this.api.delete<Basket[]>('baskets/from/' + basketUserID);
+  public deleteFromUser(basketUserID: number): void {
+    this.api.delete<void>('baskets/from/' + basketUserID).subscribe (
+      data => {
+        console.log('Baskets got deleted');
+      },
+      error => {
+        alert('Could not delete baskets!');
+      }
+    );
   }
 
   public register(basket: Basket): void {
