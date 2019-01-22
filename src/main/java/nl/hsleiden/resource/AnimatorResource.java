@@ -6,6 +6,7 @@ import nl.hsleiden.View;
 import nl.hsleiden.model.Animator;
 import nl.hsleiden.service.AnimatorService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -42,6 +43,7 @@ public class AnimatorResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
+    @RolesAllowed("ADMIN")
     public void create(Animator animator)
     {
         service.create(animator);
@@ -51,6 +53,7 @@ public class AnimatorResource {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
+    @RolesAllowed("ADMIN")
     public void update(@PathParam("id") int id, Animator animator)
     {
         service.update(id, animator);
@@ -58,6 +61,7 @@ public class AnimatorResource {
 
     @DELETE
     @Path("/{animatorID}")
+    @RolesAllowed("ADMIN")
     public void delete(@PathParam("animatorID") int id)
     {
         service.delete(id);

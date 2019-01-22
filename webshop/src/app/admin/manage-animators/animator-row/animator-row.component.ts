@@ -43,7 +43,7 @@ export class AnimatorRowComponent implements OnInit {
   }
 
   deleteAnimator() {
-    this.animatorService.delete(this.animator.getItemID());
+    this.animatorService.delete(this.animator.getAnimatorID());
   }
 
 }

@@ -6,6 +6,7 @@ import nl.hsleiden.View;
 import nl.hsleiden.model.Order;
 import nl.hsleiden.service.OrderService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -26,6 +27,7 @@ public class OrderResource {
 
     @GET
     @JsonView(View.Public.class)
+    @RolesAllowed("GUEST")
     public Collection<Order> retrieveAll()
     {
         return service.getAll();
@@ -34,6 +36,7 @@ public class OrderResource {
     @GET
     @Path("/{orderID}")
     @JsonView(View.Public.class)
+    @RolesAllowed("GUEST")
     public Order retrieve(@PathParam("orderID") int orderID)
     {
         return service.getOne(orderID);
@@ -42,11 +45,13 @@ public class OrderResource {
     @GET
     @Path("/from/{userID}")
     @JsonView(View.Public.class)
+    @RolesAllowed("GUEST")
     public Collection<Order> retrieveFromUser(@PathParam("userID") int userID) { return service.getOrdersFromUser(userID); }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
+    @RolesAllowed("GUEST")
     public void create(Order order)
     {
         service.create(order);
@@ -56,6 +61,7 @@ public class OrderResource {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
+    @RolesAllowed("GUEST")
     public void update(@PathParam("id") int id, Order order)
     {
         service.update(id, order);
@@ -63,6 +69,7 @@ public class OrderResource {
 
     @DELETE
     @Path("/{orderID}")
+    @RolesAllowed("GUEST")
     public void delete(@PathParam("orderID") int id)
     {
         service.delete(id);
@@ -70,6 +77,7 @@ public class OrderResource {
 
     @DELETE
     @Path("/from/{orderUserID}")
+    @RolesAllowed("GUEST")
     public void deleteFromUser(@PathParam("orderUserID") int id)
     {
         service.deleteFromUser(id);

@@ -6,6 +6,7 @@ import nl.hsleiden.View;
 import nl.hsleiden.model.Item;
 import nl.hsleiden.service.ItemService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -42,6 +43,7 @@ public class ItemResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
+    @RolesAllowed("ADMIN")
     public void create(Item item)
     {
         service.create(item);
@@ -51,6 +53,7 @@ public class ItemResource {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @JsonView(View.Protected.class)
+    @RolesAllowed("ADMIN")
     public void update(@PathParam("id") int id, Item item)
     {
         service.update(id, item);
@@ -58,6 +61,7 @@ public class ItemResource {
 
     @DELETE
     @Path("/{itemID}")
+    @RolesAllowed("ADMIN")
     public void delete(@PathParam("itemID") int id)
     {
         service.delete(id);
