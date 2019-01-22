@@ -38,7 +38,7 @@ export class AnimatorService {
 
   public update(animator: Animator): void {
     const data = animator.getData();
-    this.api.put<void>('animators' + animator.getAnimatorID(), data).subscribe (
+    this.api.put<void>('animators/' + animator.getAnimatorID(), data).subscribe (
       data => {
         console.log('Animator has been updated.');
       },
