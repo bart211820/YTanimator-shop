@@ -30,6 +30,8 @@ import { AnimatorRowComponent } from './admin/manage-animators/animator-row/anim
 import { MakeAdminComponent } from './admin/make-admin/make-admin.component';
 import { AddItemComponent } from './admin/manage-items/add-item/add-item.component';
 import { AddAnimatorComponent } from './admin/manage-animators/add-animator/add-animator.component';
+import { AuthGuard } from "./auth-guard";
+import {AuthorizationService} from "./shared/authorization.service";
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { AddAnimatorComponent } from './admin/manage-animators/add-animator/add-
   ],
   providers: [
     HttpClientModule,
-    HttpClient
+    HttpClient,
+    AuthorizationService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

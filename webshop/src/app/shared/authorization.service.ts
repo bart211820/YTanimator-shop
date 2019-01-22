@@ -3,10 +3,10 @@ import {Subject} from 'rxjs';
 
 @Injectable()
 export class AuthorizationService {
-  // private login: string = null;
-  // private password: string = null;
-  public login = 'admin';
-  public password = 'admin';
+  private login: string = null;
+  private password: string = null;
+  // public login = 'admin';
+  // public password = 'admin';
   private authenticator: object = null;
 
   public authorized$ = new Subject<boolean>();
