@@ -9,3 +9,14 @@ Als Docent:
 Als Student:
  email: student@hsleiden.nl
  wachtwoord: hsleidem
+
+Alle available Uri's zijn:
+ /shop
+  /shop/{itemID}
+ /login
+ /me
+ /admin
+  /admin/index
+  /admin/items
+  /admin/animators
+  /admin/admins
