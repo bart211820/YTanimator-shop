@@ -41,76 +41,55 @@ public class BasketDAO {
     }
 
     public List<Basket> getAllBaskets() {
-//        try {
-//            query = "SELECT * FROM Basket;";
-//            statement = database.prepareStatement(query);
-//
-//            return selectBaskets(statement);
-//        }
-//        catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-        Basket basket1 = new Basket(1, 1, 1, 1);
-        Basket basket2 = new Basket(2, 1, 2, 2);
-        List temporaryList = new ArrayList();
-        temporaryList.add(basket1);
-        temporaryList.add(basket2);
-        return temporaryList;
+        try {
+            query = "SELECT * FROM Basket;";
+            statement = database.prepareStatement(query);
+
+            return selectBaskets(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Basket getBasket(int basketID){
-//        try {
-//            query = "SELECT * FROM Basket WHERE basketID = ?;";
-//            statement.setInt(1, basketID);
-//            statement = database.prepareStatement(query);
-//
-//            return selectBaskets(statement).get(0);
-//        }
-//        catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            query = "SELECT * FROM Basket WHERE basketID = ?;";
+            statement = database.prepareStatement(query);
+            statement.setInt(1, basketID);
 
-        if(basketID == 1){
-            return new Basket(1, 1, 1, 1);
+            return selectBaskets(statement).get(0);
         }
-        return new Basket(2, 1, 2, 2);
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public List<Basket> getBasketsFromUser(int basketUserID) {
-        //        try {
-//            query = "SELECT * FROM Basket WHERE basketUserID = ?;";
-//            statement.setInt(1, basketUserID);
-//            statement = database.prepareStatement(query);
-//
-//            return selectBaskets(statement).get(0);
-//        }
-//        catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-        Basket basket1 = new Basket(1, 1, 1, 1);
-        Basket basket2 = new Basket(2, 1, 2, 2);
-        List temporaryList = new ArrayList();
-        temporaryList.add(basket1);
-        temporaryList.add(basket2);
-        return temporaryList;
+        try {
+            query = "SELECT * FROM Basket WHERE basketUserID = ?;";
+            statement = database.prepareStatement(query);
+            statement.setInt(1, basketUserID);
+
+            return selectBaskets(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public List<Basket> getBasketsFromUserWithItem(int basketUserID, int basketItemID) {
-        //        try {
-//            query = "SELECT * FROM Basket WHERE basketUserID = ? AND basketItemID = ?;";
-//            statement.setInt(1, basketUserID);
-        //    statement.setInt(2, basketItemID);
-//            statement = database.prepareStatement(query);
-//
-//            return selectBaskets(statement).get(0);
-//        }
-//        catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-        Basket basket1 = new Basket(1, 1, 1, 1);
-        List temporaryList = new ArrayList();
-        temporaryList.add(basket1);
-        return temporaryList;
+        try {
+            query = "SELECT * FROM Basket WHERE basketUserID = ? AND basketItemID = ?;";
+            statement = database.prepareStatement(query);
+            statement.setInt(1, basketUserID);
+            statement.setInt(2, basketItemID);
+
+            return selectBaskets(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void createBasket(int basketUserID, int basketItemID, int basketItemAmount) {
@@ -129,14 +108,14 @@ public class BasketDAO {
         }
     }
 
-    public void updateBasket(int basketUserID, int basketItemID, int basketAmount, int basketID) {
+    public void updateBasket(int basketUserID, int basketItemID, int basketItemAmount, int basketID) {
         try {
-            query = "UPDATE Basket basketUserID = ?, basketItemID = ?, basketAmount = ? WHERE basketID = ?";
+            query = "UPDATE Basket SET basketUserID = ?, basketItemID = ?, basketItemAmount = ? WHERE basketID = ?;";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, basketUserID);
             statement.setInt(2, basketItemID);
-            statement.setInt(3, basketAmount);
+            statement.setInt(3, basketItemAmount);
             statement.setInt(4, basketID);
 
             database.update(statement);
@@ -148,7 +127,7 @@ public class BasketDAO {
 
     public void deleteBasket(int basketID) {
         try {
-            query = "DELETE FROM basket WHERE basketID = ?;";
+            query = "DELETE FROM Basket WHERE basketID = ?;";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, basketID);
@@ -162,7 +141,7 @@ public class BasketDAO {
 
     public void deleteBasketFromUser(int userID) {
         try {
-            query = "DELETE FROM basket WHERE basketUserID = ?;";
+            query = "DELETE FROM Basket WHERE basketUserID = ?;";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, userID);

@@ -48,7 +48,7 @@ export class BasketItemComponent implements OnInit {
       basketID: this.basket.getBasketID(),
       basketUserID: this.basket.getBasketUserID(),
       basketItemID: this.basket.getBasketItemID(),
-      basketItemAmount: this.basket.getBasketItemAmount()
+      basketItemAmount: this.itemAmount
     };
     const newBasket = new Basket(basketData);
     this.basketService.update(newBasket);

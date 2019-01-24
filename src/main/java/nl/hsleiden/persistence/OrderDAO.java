@@ -43,63 +43,46 @@ public class OrderDAO {
     }
 
     public List<Order> getAllOrders() {
-//        try {
-//            query = "SELECT * FROM Order;";
-//            statement = database.prepareStatement(query);
-//
-//            return selectOrders(statement);
-//        }
-//        catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-        Order order1 = new Order(1, 1, 2, 1, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
-        Order order2 = new Order(2, 1, 1, 2, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
-        List temporaryList = new ArrayList();
-        temporaryList.add(order1);
-        temporaryList.add(order2);
-        return temporaryList;
+        try {
+            query = "SELECT * FROM MadeOrder;";
+            statement = database.prepareStatement(query);
+
+            return selectOrders(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Order getOrder(int orderID){
-//        try {
-//            query = "SELECT * FROM Order WHERE orderID = ?;";
-//            statement.setInt(1, orderID);
-//            statement = database.prepareStatement(query);
-//
-//            return selectOrders(statement).get(0);
-//        }
-//        catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            query = "SELECT * FROM MadeOrder WHERE orderID = ?;";
+            statement = database.prepareStatement(query);
+            statement.setInt(1, orderID);
 
-        if(orderID == 1){
-            return new Order(1, 1, 2, 1, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+            return selectOrders(statement).get(0);
         }
-        return new Order(2, 1, 1, 2, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public List<Order> getOrderFromUser(int orderUserID) {
-        //        try {
-//            query = "SELECT * FROM Basket WHERE orderUserID = ?;";
-//            statement.setInt(1, orderUserID);
-//            statement = database.prepareStatement(query);
-//
-//            return selectOrders(statement).get(0);
-//        }
-//        catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-        Order order1 = new Order(1, 1, 2, 1, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
-        Order order2 = new Order(2, 1, 1, 2, new java.sql.Date(Calendar.getInstance().getTime().getTime()));
-        List temporaryList = new ArrayList();
-        temporaryList.add(order1);
-        temporaryList.add(order2);
-        return temporaryList;
+        try {
+            query = "SELECT * FROM MadeOrder WHERE orderUserID = ?;";
+            statement = database.prepareStatement(query);
+            statement.setInt(1, orderUserID);
+
+            return selectOrders(statement);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void createOrder(int orderUserID, int orderItemID, int orderItemAmount, Date orderDelivery) {
         try {
-            query = "INSERT INTO Order (orderUserID, orderItemID, orderItemAmount, orderDelivery) VALUES (?, ?, ?, ?);";
+            query = "INSERT INTO MadeOrder (orderUserID, orderItemID, orderItemAmount, orderDelivery) VALUES (?, ?, ?, ?);";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, orderUserID);
@@ -114,14 +97,14 @@ public class OrderDAO {
         }
     }
 
-    public void updateOrder(int orderUserID, int orderItemID, int orderAmount, Date orderDelivery, int orderID) {
+    public void updateOrder(int orderUserID, int orderItemID, int orderItemAmount, Date orderDelivery, int orderID) {
         try {
-            query = "UPDATE Order orderUserID = ?, orderItemID = ?, orderAmount = ?, orderDelivery = ? WHERE orderID = ?";
+            query = "UPDATE MadeOrder SET orderUserID = ?, orderItemID = ?, orderItemAmount = ?, orderDelivery = ? WHERE orderID = ?;";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, orderUserID);
             statement.setInt(2, orderItemID);
-            statement.setInt(3, orderAmount);
+            statement.setInt(3, orderItemAmount);
             statement.setDate(4, orderDelivery);
             statement.setInt(5, orderID);
 
@@ -134,7 +117,7 @@ public class OrderDAO {
 
     public void deleteOrder(int orderID) {
         try {
-            query = "DELETE FROM Order WHERE orderID = ?;";
+            query = "DELETE FROM MadeOrder WHERE orderID = ?;";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, orderID);
@@ -148,7 +131,7 @@ public class OrderDAO {
 
     public void deleteOrderFromUser(int orderUserID) {
         try {
-            query = "DELETE FROM Order WHERE orderUserID = ?;";
+            query = "DELETE FROM MadeOrder WHERE orderUserID = ?;";
 
             statement = database.prepareStatement(query);
             statement.setInt(1, orderUserID);

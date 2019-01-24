@@ -55,7 +55,7 @@ export class BasketListComponent implements OnInit {
 
   getItemsFromAPI() {
     for(let basket of this.basketList) {
-      const item = this.itemService.getOne(basket.getBasketID());
+      const item = this.itemService.getOne(basket.getBasketItemID());
       this.getItem(item);
     }
   }
@@ -75,7 +75,10 @@ export class BasketListComponent implements OnInit {
   }
 
   recalculateTotalPrice(agreed: boolean) {
-    this.getAllBasketsFromAPI();
+    setTimeout(() => {
+      this.getAllBasketsFromAPI();
+    }, 1000);
+
   }
 
   orderEverything() {

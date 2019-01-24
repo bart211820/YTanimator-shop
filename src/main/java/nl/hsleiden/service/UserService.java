@@ -38,7 +38,12 @@ public class UserService extends BaseService<User>
 
         user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
 
-        dao.add(user);
+        String roles = "";
+        for(String role : user.getRoles()) {
+            roles = roles + role + " ";
+        }
+
+        dao.createUser(user.getFullName(), user.getPostcode(), user.getStreetnumber(), user.getEmailAddress(), user.getPassword(), roles);
     }
     
     public void update(User authenticator, int id, User user)
@@ -67,6 +72,6 @@ public class UserService extends BaseService<User>
         // Controleren of deze gebruiker wel bestaat
         User user = get(id);
         
-        dao.delete(id);
+        dao.deleteUser(id);
     }
 }

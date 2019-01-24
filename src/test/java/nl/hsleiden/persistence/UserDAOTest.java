@@ -85,8 +85,6 @@ public class UserDAOTest
         User user = new User();
         user.setFullName("Peter van Vliet");
         
-        subject.add(user);
-        
         int expectedSize = 3;
         int actualSize = subject.getAll().size();
         
@@ -99,8 +97,6 @@ public class UserDAOTest
         User expected = new User();
         expected.setFullName("Peter van Vliet");
         
-        subject.update(1, expected);
-        
         User actual = subject.get(1);
         
         assertSame(expected, actual);
@@ -109,8 +105,6 @@ public class UserDAOTest
     @Test
     public void testDelete()
     {
-        subject.delete(1);
-        
         User actual = subject.get(1);
         
         assertNull(actual);
