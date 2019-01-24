@@ -3,7 +3,6 @@ import {ApiService} from "../../../shared/api.service";
 import {AuthorizationService} from "../../../shared/authorization.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../../shared/modelsAndTheirServices/user.service";
-import {Item} from "../../../shared/modelsAndTheirServices/item";
 import {User} from "../../../shared/modelsAndTheirServices/user";
 
 @Component({
@@ -26,6 +25,8 @@ export class AccountComponent implements OnInit {
   streetnumber: String;
   roles: String[];
 
+  oldPassword: String;
+
   private user;
   private userObject: User;
 
@@ -46,10 +47,10 @@ export class AccountComponent implements OnInit {
   fillAttributesWithObjectData(){
     this.fullName = this.userObject.getFullName();
     this.emailAddress = this.userObject.getEmailAddress();
-    this.password = this.userObject.getPassword();
     this.postcode = this.userObject.getPostcode();
     this.streetnumber = this.userObject.getStreetnumber();
     this.roles = this.userObject.getRoles();
+    this.oldPassword = this.userObject.getPassword();
   }
 
   logOut() {
@@ -66,6 +67,11 @@ export class AccountComponent implements OnInit {
       password: this.password,
       roles: this.userObject.getRoles()
     };
+
+    if(userData.password === undefined || userData.password === '') {
+      userData.password = this.oldPassword;
+    }
+
     const user = new User(userData);
     this.userService.update(user);
   }

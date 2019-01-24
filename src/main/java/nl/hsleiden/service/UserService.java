@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import nl.hsleiden.model.User;
 import nl.hsleiden.persistence.UserDAO;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -33,8 +34,10 @@ public class UserService extends BaseService<User>
     
     public void add(User user)
     {
-        user.setRoles(new String[] { "GUEST" });
-        
+//        user.setRoles(new String[] { "GUEST" });
+
+        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+
         dao.add(user);
     }
     
@@ -48,6 +51,12 @@ public class UserService extends BaseService<User>
             // Vaststellen dat de geauthenticeerde gebruiker
             // zichzelf aan het aanpassen is
             assertSelf(authenticator, oldUser);
+        }
+
+        // Kijken of wachtwoord aangepast moet worden
+        if (!user.getPassword().equals(oldUser.getPassword())) {
+            // Als ze niet gelijk zijn, is het dus een nieuw wachtwoord, gebruik eerst BCrypt
+            user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         }
         
         dao.updateUser(user.getFullName(), user.getPostcode(), user.getStreetnumber(), user.getEmailAddress(), user.getPassword(), user.getUserID());
