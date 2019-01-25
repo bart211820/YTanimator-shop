@@ -27,8 +27,8 @@ export class AccountComponent implements OnInit {
 
   oldPassword: String;
 
-  private user;
-  private userObject: User;
+  user;
+  userObject: User;
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private userService: UserService) { }
 

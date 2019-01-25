@@ -24,11 +24,11 @@ import {Order} from "../../../shared/modelsAndTheirServices/order";
 export class BasketListComponent implements OnInit {
 
   @Input() userID;
-  private baskets;
-  private basketList = [];
-  private itemList = [];
-  private totalPrice = 0;
-  private readyToDisplay = false;
+  baskets;
+  basketList = [];
+  itemList = [];
+  totalPrice = 0;
+  readyToDisplay = false;
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private basketService: BasketService, private itemService: ItemService, private orderService: OrderService) { }
 

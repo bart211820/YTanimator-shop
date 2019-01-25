@@ -23,10 +23,10 @@ export class BasketItemComponent implements OnInit {
 
   @Input() basket: Basket;
   @Output() totalPriceUpdate = new EventEmitter<boolean>();
-  private item;
-  private itemObject: Item;
+  item;
+  itemObject: Item;
   itemAmount: number;
-  private readyToDisplay = false;
+  readyToDisplay = false;
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService, private basketService: BasketService) { }
 

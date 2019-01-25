@@ -11,7 +11,7 @@ server:
   adminContextPath: /admin
   applicationConnectors:
     - type: http
-      port: 8080
+      port: 8002
   adminConnectors:
     - type: http
-      port: 8081
+      port: 8003

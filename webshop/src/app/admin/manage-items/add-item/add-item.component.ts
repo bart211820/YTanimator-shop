@@ -20,15 +20,15 @@ import {Item} from "../../../shared/modelsAndTheirServices/item";
 })
 export class AddItemComponent implements OnInit {
 
-  private itemName;
-  private itemDescription;
-  private itemPrice;
-  private itemImage;
-  private itemType;
-  private itemAnimatorID;
+  itemName;
+  itemDescription;
+  itemPrice;
+  itemImage;
+  itemType;
+  itemAnimatorID;
 
-  private animators;
-  private animatorList = [];
+  animators;
+  animatorList = [];
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService, private animatorService: AnimatorService) { }
 

@@ -18,9 +18,9 @@ import {ItemService} from "../../../../shared/modelsAndTheirServices/item.servic
 export class OrderItemComponent implements OnInit {
 
   @Input() order;
-  private item;
-  private itemObject: Item;
-  private readyToDisplay = false;
+  item;
+  itemObject: Item;
+  readyToDisplay = false;
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private itemService: ItemService) { }
 

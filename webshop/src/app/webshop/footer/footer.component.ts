@@ -16,8 +16,8 @@ import {Animator} from "../../shared/modelsAndTheirServices/animator";
   ]
 })
 export class FooterComponent implements OnInit {
-  private animators;
-  private animatorsList = [];
+  animators;
+  animatorsList = [];
 
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router, private animatorService: AnimatorService) { }
 
